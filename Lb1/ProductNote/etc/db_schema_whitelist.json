@@ -1,0 +1,20 @@
+{
+    "lb1_productnote_note": {
+        "column": {
+            "note_id": true,
+            "content": true,
+            "product_id": true,
+            "customer_id": true,
+            "store_id": true,
+            "created_at": true,
+            "updated_at": true,
+            "is_active": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "LB1_PRODUCTNOTE_NOTE_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true,
+            "LB1_PRODUCTNOTE_NOTE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true,
+            "LB1_PRODUCTNOTE_NOTE_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

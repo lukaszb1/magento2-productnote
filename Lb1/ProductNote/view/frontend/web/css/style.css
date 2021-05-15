@@ -1,0 +1,30 @@
+/*  Note listing    */
+
+.note-listing .pager {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media all and (max-width: 768px) {
+    .note-listing .pager {
+        flex-direction: column;
+    }
+
+    .note-listing .pages {
+        padding: 15px 0;
+    }
+}
+
+.note-item {
+    padding: 5px 0;
+}
+
+/*  Note form   */
+
+.note-form {
+    margin-top: 30px;
+}
+
+.catalog-product-view .note-form .control {
+    display: block;
+}

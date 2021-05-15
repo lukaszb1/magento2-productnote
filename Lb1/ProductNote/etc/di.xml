@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--    Preferences-->
+    <preference for="Lb1\ProductNote\Api\Data\NoteInterface" type="Lb1\ProductNote\Model\Note" />
+    <preference for="Lb1\ProductNote\Api\NoteRepositoryInterface" type="Lb1\ProductNote\Model\NoteRepository" />
+    <preference for="Lb1\ProductNote\Api\Data\NoteSearchResultsInterface" type="Lb1\ProductNote\Model\NoteSearchResults" />
+    <!--    Note listing-->
+    <virtualType name="Lb1ProductNoteNoteCollection" type="Lb1\ProductNote\Ui\DataProvider\Note\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">lb1_productnote_note</argument>
+            <argument name="resourceModel" xsi:type="string">Lb1\ProductNote\Model\ResourceModel\Note</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="lb1_productnote_note_listing_data_source" xsi:type="string">Lb1ProductNoteNoteCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Lb1\ProductNote\Ui\DataProvider\Note\ListingDataProvider">
+        <plugin name="lb1_productnote_attributes" type="Lb1\ProductNote\Plugin\AddAttributesToUiDataProvider"/>
+    </type>
+</config>

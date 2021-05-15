@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Lb1_ProductNote::css/style.css"/>
+    </head>
+    <body>
+        <referenceBlock name="product.info.details">
+            <block class="Lb1\ProductNote\Block\Product\View\Tab" name="product.details.notes" as="product.details.notes"
+                   template="Lb1_ProductNote::product/view/tab.phtml" group="detailed_info">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Notes</argument>
+                </arguments>
+                <block class="Lb1\ProductNote\Block\Product\View\Form" template="Lb1_ProductNote::product/view/form.phtml" name="product.details.notes.form" as="product.details.notes.form" />
+                <block class="Lb1\ProductNote\Block\Product\View\Listing" template="Lb1_ProductNote::product/view/listing.phtml" name="product.details.notes.list" as="product.details.notes.list" cacheable="false">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">Lb1\ProductNote\ViewModel\ListingViewModel</argument>
+                    </arguments>
+                    <block class="Magento\Theme\Block\Html\Pager" name="product.details.notes.toolbar" as="product.details.notes.listing.toolbar"/>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

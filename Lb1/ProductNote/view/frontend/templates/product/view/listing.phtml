@@ -1,0 +1,31 @@
+<?php
+/** @var \Lb1\ProductNote\Block\Product\View\Listing $block */
+/** @var \Lb1\ProductNote\ViewModel\ListingViewModel $viewModel */
+$notes = $block->getNotes();
+?>
+<div class="block note-list" id="customer-notes">
+    <?php if ($notes->getSize()) : ?>
+        <div class="block-content">
+            <div class="toolbar note-toolbar">
+                <?= $block->getChildHtml('product.details.notes.listing.toolbar') ?>
+            </div>
+            <ol class="items note-items">
+                <?php foreach ($notes as $note) : ?>
+                    <li class="item note-item">
+                        <div class="note-details">
+                            <strong><?= $block->escapeHtml($note->getFirstname()) ?></strong>
+                            &middot;
+                            <time><?= $block->escapeHtml($block->formatDate($note->getCreatedAt())) ?></time>
+                        </div>
+                        <div class="note-content">
+                            <?= /* @noEscape */ nl2br($block->escapeHtml($note->getContent())) ?>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    <?php else: ?>
+        <?= __('There are no notes.') ?>
+    <?php endif; ?>
+</div>
+

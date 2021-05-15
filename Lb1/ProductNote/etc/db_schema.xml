@@ -1,0 +1,26 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!--    I assume you are using Magento version 2.3 or higher -->
+    <table name="lb1_productnote_note" resource="default" engine="innodb"
+           comment="ProductNote note table">
+        <column xsi:type="int" name="note_id" padding="11" unsigned="true" nullable="false" identity="true"
+                comment="Note ID"/>
+        <column xsi:type="text" name="content" nullable="false" comment="Content"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" comment="Product ID"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" comment="Customer ID"/>
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" comment="Store ID"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="false" comment="Created at"/>
+        <column xsi:type="datetime" name="updated_at" on_update="false" nullable="true" comment="Updated at"/>
+        <column xsi:type="smallint" name="is_active" padding="2" unsigned="true" nullable="false" default="1" comment="1 = note is active, 0 = note is not active"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="note_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="lb1_productnote_note_product_id" table="lb1_productnote_note"
+                    column="product_id" referenceTable="catalog_product_entity" referenceColumn="entity_id" onDelete="NO ACTION" />
+        <constraint xsi:type="foreign" referenceId="lb1_productnote_note_customer_id" table="lb1_productnote_note"
+                    column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="NO ACTION" />
+        <constraint xsi:type="foreign" referenceId="lb1_productnote_note_store_id" table="lb1_productnote_note"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="NO ACTION" />
+    </table>
+</schema>
+

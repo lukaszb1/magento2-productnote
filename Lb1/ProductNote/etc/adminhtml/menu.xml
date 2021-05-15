@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Lb1_ProductNote::note" title="Notes" translate="title" module="Lb1_ProductNote" sortOrder="60"
+             parent="Magento_Backend::stores_attributes" action="productnote/note/index"
+             resource="Lb1_ProductNote::note"/>
+    </menu>
+</config>

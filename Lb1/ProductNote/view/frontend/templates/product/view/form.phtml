@@ -1,0 +1,36 @@
+<?php
+/** @var \Lb1\ProductNote\Block\Product\View\Form $block */
+?>
+<div class="block-content">
+    <form action="<?= $block->escapeUrl($block->getAction()) ?>" class="note-form" method="post" id="note-form" data-mage-init='{"validation":{}}'>
+        <?= $block->getBlockHtml('formkey') ?>
+        <fieldset class="fieldset note-fieldset" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+            <legend class="legend note-legend">
+                <span><?= $block->escapeHtml(__("Add note")) ?></span>
+            </legend>
+            <input type="hidden" name="product_id" value="<?= $block->getProductId() ?>">
+            <div class="field note-field-text required">
+                <label for="content" class="label">
+                    <span><?= $block->escapeHtml(__('Content')) ?></span>
+                </label>
+                <div class="control note-control">
+                    <textarea name="content" id="content" cols="5" rows="3" data-validate='{"required":true, "maxlength":500, "alphanumeric-extended":true}'></textarea>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar note-form-actions">
+            <div class="primary actions-primary">
+                <button type="submit" class="action submit primary">
+                    <span><?= $block->escapeHtml(__('Submit note')) ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/x-magento-init">
+{
+    "#note-form": {
+        "Lb1_ProductNote/js/validate-alphanumeric-extended": {}
+    }
+}
+</script>
