@@ -67,26 +67,4 @@ class CollectionTest extends AbstractCollectionTest
         $this->assertSame($this->collection, $this->collection->addProductFilter($productId));
         $this->assertEquals($expectedFilter, $this->collection->getFilter('main_table.product_id'));
     }
-
-    /**
-     * @return array
-     */
-    public function getItemsDataProvider()
-    {
-        return [
-            [
-                new \Magento\Framework\DataObject(['id' => 1, 'row_id' => 1]),
-                [
-                    ['row_id' => 1, 'store_id' => \Magento\Store\Model\Store::DEFAULT_STORE_ID],
-                ],
-            ],
-            [
-                new \Magento\Framework\DataObject(['id' => 2, 'row_id' => 2]),
-                [
-                    ['row_id' => 2, 'store_id' => 1],
-                    ['row_id' => 2, 'store_id' => 2],
-                ],
-            ],
-        ];
-    }
 }
